@@ -1,0 +1,77 @@
+main {
+  .basket_all {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    h1 {
+      font-family: sans-serif;
+      margin-top: 100px;
+      span {
+        font-family: sans-serif;
+      }
+      h2 {
+        font-family: sans-serif;
+      }
+    }
+    h3 {
+      font-family: sans-serif;
+      font-size: 20px;
+    }
+    p {
+      font-family: sans-serif;
+      font-size: 20px;
+    }
+    .basket_item {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+      border: 1px solid black;
+
+      .basket_topla {
+        background-color: green;
+        color: white;
+        font-size: 20px;
+        border: none;
+        height: 30px;
+        width: 100px;
+        border-radius: 10px;
+      }
+      .basket_cixma {
+        background-color: rgb(128, 0, 0);
+        color: white;
+        font-size: 20px;
+        border: none;
+        height: 30px;
+        width: 100px;
+        border-radius: 10px;
+      }
+      .basket_vurma {
+        border: none;
+        color: white;
+        border-radius: 10px;
+        height: 30px;
+        width: 100px;
+        background-color: #f42f2c;
+      }
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+      }
+    }
+    .sifaris {
+      justify-self: center;
+      margin-top: 50px;
+      border: none;
+      border-radius: 10px;
+      width: 100px;
+      color: white;
+      background-color: #f42f2c;
+      cursor: pointer;
+      height: 30px;
+    }
+  }
+}

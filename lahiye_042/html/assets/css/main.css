@@ -1,0 +1,1279 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+.hamburger {
+  padding: 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+.hamburger:hover {
+  opacity: 0.7;
+}
+
+.hamburger.is-active:hover {
+  opacity: 0.7;
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: #ffffff;
+}
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 25px;
+  height: 2.5px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  display: block;
+}
+
+.hamburger-inner::before {
+  top: -8px;
+}
+
+.hamburger-inner::after {
+  bottom: -8px;
+}
+
+.hamburger--squeeze .hamburger-inner {
+  transition-duration: 0.075s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--squeeze .hamburger-inner::before {
+  transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+}
+
+.hamburger--squeeze .hamburger-inner::after {
+  transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--squeeze.is-active .hamburger-inner {
+  transform: rotate(45deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hamburger--squeeze.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+  transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+}
+
+.hamburger--squeeze.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+   * Spin
+   */
+.hamburger--spin .hamburger-inner {
+  transition-duration: 0.22s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin .hamburger-inner::before {
+  transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+}
+
+.hamburger--spin .hamburger-inner::after {
+  transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin.is-active .hamburger-inner {
+  transform: rotate(225deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hamburger--spin.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+  transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+}
+
+.hamburger--spin.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+     * Spin Reverse
+     */
+.hamburger--spin-r .hamburger-inner {
+  transition-duration: 0.22s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin-r .hamburger-inner::before {
+  transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+}
+
+.hamburger--spin-r .hamburger-inner::after {
+  transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--spin-r.is-active .hamburger-inner {
+  transform: rotate(-225deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hamburger--spin-r.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+  transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+}
+
+.hamburger--spin-r.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(90deg);
+  transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.container {
+  width: 100%;
+  max-width: 80%;
+  margin: auto;
+}
+
+header nav .nav_bar {
+  height: 100%;
+  width: 0;
+  opacity: 0;
+  z-index: -1;
+  transition: 500ms;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #f8f8f9;
+}
+
+header nav .nav_bar img {
+  cursor: pointer;
+}
+
+header nav .nav_bar ul {
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header nav .nav_bar ul li a {
+  color: black;
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+header nav .nav_bar .nav_icons {
+  display: flex;
+  gap: 10px;
+}
+
+header nav .nav_bar .nav_icons .nav_icons_box {
+  background-color: #e8e8e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+header nav .nav_bar .nav_icons .nav_icons_box:hover {
+  transition: 500ms;
+  background-color: #f42f2c;
+}
+
+header nav .nav_bar .nav_icons .nav_icons_box i {
+  color: white;
+  font-size: 12px;
+}
+
+header nav .nav_bar_active {
+  opacity: 1;
+  z-index: 1;
+  transition: 500ms;
+  width: 20%;
+}
+
+header nav .nav_btns {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+header nav .nav_btns .nav_btns_all {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 60%;
+  margin: auto;
+}
+
+header nav .nav_btns .nav_btns_all .nav_btns_log {
+  width: 25%;
+  gap: 1%;
+}
+
+header nav .nav_btns .nav_btns_all .nav_btns_log .nav_btns_log_login {
+  cursor: pointer;
+  width: 100%;
+  background: none;
+  border: 1px solid #858585;
+  color: white;
+  height: 30px;
+}
+
+header nav .nav_btns .nav_btns_all .nav_btns_log .nav_btns_log_singin {
+  width: 100%;
+  cursor: pointer;
+  background: none;
+  border: 1px solid #858585;
+  color: white;
+  height: 30px;
+}
+
+header nav .nav_btns .nav_btns_all .profil {
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 120px;
+}
+
+header nav .nav_btns .nav_btns_all .profil h3 {
+  color: white;
+  font-size: 23px;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+header nav .nav_btns .nav_btns_all .login {
+  position: fixed;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1%;
+}
+
+header nav .nav_btns .nav_btns_all .login form {
+  width: 30%;
+}
+
+header nav .nav_btns .nav_btns_all .login form input {
+  width: 100%;
+  height: 30px;
+}
+
+header nav .nav_btns .nav_btns_all .login .login_send {
+  cursor: pointer;
+  height: 30px;
+  width: 10%;
+  border: none;
+  color: white;
+  background-color: #b35959;
+  border-radius: 5px;
+}
+
+header nav .nav_btns .nav_btns_all .login .login_singin {
+  cursor: pointer;
+  height: 30px;
+  width: 10%;
+  border: none;
+  color: white;
+  background-color: #5969b3;
+  border-radius: 5px;
+}
+
+header nav .nav_btns .nav_btns_all .singin {
+  position: fixed;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1%;
+}
+
+header nav .nav_btns .nav_btns_all .singin form {
+  width: 30%;
+}
+
+header nav .nav_btns .nav_btns_all .singin form input {
+  width: 100%;
+  height: 30px;
+}
+
+header nav .nav_btns .nav_btns_all .singin .singin_send {
+  cursor: pointer;
+  height: 30px;
+  width: 10%;
+  border: none;
+  color: white;
+  background-color: #b35959;
+  border-radius: 5px;
+}
+
+header nav .nav_btns .nav_btns_all .singin .singin_login {
+  cursor: pointer;
+  height: 30px;
+  width: 10%;
+  border: none;
+  color: white;
+  background-color: #5969b3;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  header nav .nav_btns {
+    display: none;
+  }
+}
+
+header .nav_bg {
+  width: 100%;
+}
+
+header .nav_bg .slick-prev {
+  display: none !important;
+}
+
+header .nav_bg .slick-arrow {
+  display: none !important;
+}
+
+header .nav_bg .slick-dots {
+  display: none !important;
+}
+
+header .nav_tablet {
+  background-color: #04091e;
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+header .nav_tablet .nav_tablet_all {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  max-width: 90%;
+  margin: auto;
+}
+
+header .nav_tablet .nav_tablet_open {
+  width: 100%;
+  max-width: 90%;
+  margin: auto;
+  height: 0;
+  overflow: hidden;
+}
+
+header .nav_tablet .nav_tablet_open ul li {
+  height: 30px;
+  width: 100%;
+  margin-top: 10px;
+  border-bottom: 1px solid #b35959;
+}
+
+header .nav_tablet .nav_tablet_open ul li a {
+  color: white;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 14px;
+  transition: 300ms;
+}
+
+header .nav_tablet .nav_tablet_open ul li a:hover {
+  color: #f42f2c;
+}
+
+header .nav_tablet .nav_tablet_isactive {
+  height: auto;
+  transition: 300ms;
+}
+
+@media screen and (max-width: 768px) {
+  header .nav_tablet {
+    display: block;
+  }
+}
+
+main {
+  background-image: url("/HTML/Assets/Image/bg imagee.png");
+  display: flex;
+  flex-direction: column;
+}
+
+main #foods {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+main #foods .foods_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main #foods .foods_list .foods_list_all {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+main #foods .foods_list .foods_list_all .foods_list_text {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 10px;
+  width: 100%;
+}
+
+main #foods .foods_list .foods_list_all .foods_list_text h1 {
+  font-family: sans-serif;
+  font-size: 50px;
+}
+
+main #foods .foods_list .foods_list_all .foods_list_text p {
+  width: 100%;
+  font-family: sans-serif;
+}
+
+main #foods .foods_list .foods_list_all .foods_list_text button {
+  height: 30px;
+  width: 30%;
+  border: none;
+  border-radius: 10px;
+  background-color: #f42f2c;
+  color: white;
+  cursor: pointer;
+}
+
+main #foods .foods_list .foods_list_all .foods_list_image {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: zoom-in;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 100%;
+  transition: 500ms;
+  border-radius: 10px;
+}
+
+main #foods .foods_list .foods_list_all .foods_list_image img {
+  height: auto;
+  width: 100%;
+  transition: 500ms;
+}
+
+main #foods .foods_list .foods_list_all .foods_list_image img:hover {
+  transform: scale(1.3);
+}
+
+@media screen and (max-width: 768px) {
+  main #foods .foods_list .foods_list_all {
+    flex-direction: column;
+    gap: 30px;
+  }
+  main #foods .foods_list .foods_list_all img {
+    margin-top: 20px;
+  }
+}
+
+main #menu .menu_all .menu_title {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main #menu .menu_all .menu_title h1 {
+  font-family: sans-serif;
+  font-size: 40px;
+}
+
+main #menu .menu_all .menu_title p {
+  font-family: sans-serif;
+}
+
+main #menu .menu_all .menu_foods {
+  display: flex;
+  gap: 1%;
+}
+
+main #menu .menu_all .menu_foods .menu_foods_cost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-image: url("/HTML/Assets/Image/menu_bg_image.jpg");
+  border-radius: 10px;
+}
+
+main #menu .menu_all .menu_foods .menu_foods_cost .menu_foods_cost_element {
+  width: 95%;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main #menu .menu_all .menu_foods .menu_foods_cost .menu_foods_cost_element h1 {
+  font-family: sans-serif;
+  color: #000000;
+}
+
+main #menu .menu_all .menu_foods .menu_foods_cost .menu_foods_cost_element p {
+  font-family: sans-serif;
+  font-weight: 800;
+  color: black;
+}
+
+main #menu .menu_all .menu_foods .menu_foods_cost .menu_foods_cost_element .basket_btn {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f42f2c;
+  color: white;
+  transition: 500ms;
+  cursor: pointer;
+}
+
+main #menu .menu_all .menu_foods .menu_foods_cost .menu_foods_cost_element .basket_btn:hover {
+  background-color: white;
+  color: #f42f2c;
+  border: 1px solid #f42f2c;
+}
+
+main #menu .menu_all .menu_foods .menu_foods_cost .menu_foods_cost_element .basket_btn:hover i {
+  color: #f42f2c;
+}
+
+main #menu .menu_all .menu_foods .menu_foods_cost .menu_foods_cost_element .basket_btn i {
+  color: white;
+  margin-left: 5px;
+}
+
+main #menu .menu_all .menu_foods .menu_foods_image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+main #menu .menu_all .menu_foods .menu_foods_image:hover .menu_foods_image_text {
+  height: 10%;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+main #menu .menu_all .menu_foods .menu_foods_image img {
+  height: auto;
+  width: 100%;
+  transition: 500ms;
+}
+
+main #menu .menu_all .menu_foods .menu_foods_image img:hover {
+  transform: scale(1.1);
+}
+
+main #menu .menu_all .menu_foods .menu_foods_image .menu_foods_image_text {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0;
+  transition: 500ms;
+  overflow: hidden;
+  opacity: 0;
+  z-index: -1;
+  background-color: #3c6464;
+  width: 100%;
+  bottom: 0;
+}
+
+main #menu .menu_all .menu_foods .menu_foods_image .menu_foods_image_text P {
+  color: white;
+}
+
+@media screen and (max-width: 1010px) {
+  main #menu .menu_all .menu_foods {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+main #chef .chef_descripion_all {
+  width: 100%;
+  max-width: 60%;
+  margin: 0 auto;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main #chef .chef_descripion_all h1 {
+  font-family: sans-serif;
+  font-size: 40px;
+  margin-top: 100px;
+}
+
+main #chef .chef_descripion_all .chef_descripion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+main #chef .chef_descripion_all .chef_descripion .chef_descripion_element {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  main #chef .chef_descripion_all .chef_descripion .chef_descripion_element {
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+main #chef .chef_descripion_all .chef_descripion .chef_descripion_element .chef_descripion_image {
+  border-radius: 10px;
+  overflow: visible;
+  background-image: url("https://media.istockphoto.com/id/1428412216/photo/a-male-chef-pouring-sauce-on-meal.webp?b=1&s=170667a&w=0&k=20&c=mMfLAC5goaTvBlr5_2w3e87pi91EqXDtEFh5e4pQUTM=");
+  width: 50%;
+  height: 350px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@media screen and (max-width: 768px) {
+  main #chef .chef_descripion_all .chef_descripion .chef_descripion_element .chef_descripion_image {
+    width: 100%;
+  }
+}
+
+main #chef .chef_descripion_all .chef_descripion .chef_descripion_element .chef_descripion_text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  gap: 50px;
+  margin-left: 10px;
+}
+
+main #chef .chef_descripion_all .chef_descripion .chef_descripion_element .chef_descripion_text h1 {
+  font-family: sans-serif;
+  color: #f42f2c;
+}
+
+main #chef .chef_descripion_all .chef_descripion .chef_descripion_element .chef_descripion_text p {
+  text-align: justify;
+  font-family: sans-serif;
+  color: black;
+}
+
+main #rezerv .rezerv_all {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 100px;
+  gap: 1%;
+}
+
+main #rezerv .rezerv_all .rezerv_image {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 10px;
+  transition: 500ms;
+}
+
+main #rezerv .rezerv_all .rezerv_image img {
+  height: auto;
+  width: 100%;
+  transition: 500ms;
+}
+
+main #rezerv .rezerv_all .rezerv_image img:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 1250px) {
+  main #rezerv .rezerv_all .rezerv_image {
+    height: 400px;
+  }
+  main #rezerv .rezerv_all .rezerv_image img {
+    height: 100%;
+  }
+}
+
+main #rezerv .rezerv_all .rezerv_text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  background-color: #f8f8f9;
+  height: 450px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  main #rezerv .rezerv_all .rezerv_text {
+    height: 600px;
+  }
+}
+
+main #rezerv .rezerv_all .rezerv_text .rezerv_title {
+  margin-left: 50px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  height: 100px;
+}
+
+main #rezerv .rezerv_all .rezerv_text .rezerv_title h1 {
+  font-family: sans-serif;
+  text-align: start;
+}
+
+main #rezerv .rezerv_all .rezerv_text form {
+  margin-left: 50px;
+  margin-top: 40px;
+  width: 60%;
+}
+
+main #rezerv .rezerv_all .rezerv_text form input {
+  height: 30px;
+  width: 100%;
+}
+
+main #rezerv .rezerv_all .rezerv_text .rezerv_btn {
+  margin-left: 50px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: #f42f2c;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  width: 25%;
+  height: 40px;
+  transition: 500ms;
+}
+
+main #rezerv .rezerv_all .rezerv_text .rezerv_btn:hover {
+  background-color: white;
+  border: 1px solid #f42f2c;
+  color: #f42f2c;
+}
+
+main #rezerv .rezerv_all .rezerv_text .congrlation_bg {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+main #rezerv .rezerv_all .rezerv_text .congrlation_bg .congrlation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: white;
+}
+
+main #rezerv .rezerv_all .rezerv_text .congrlation_bg .congrlation h1 {
+  color: red;
+  font-family: sans-serif;
+  font-size: 50px;
+}
+
+main #rezerv .rezerv_all .rezerv_text .congrlation_bg .congrlation p {
+  color: red;
+  font-family: sans-serif;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  main #rezerv .rezerv_all {
+    flex-direction: column;
+    gap: 50px;
+  }
+  main #rezerv .rezerv_all .rezerv_image {
+    height: auto;
+  }
+  main #rezerv .rezerv_all .rezerv_image img {
+    height: auto;
+  }
+}
+
+main #location {
+  margin-top: 100px;
+}
+
+main #log .login {
+  top: 0;
+  background-color: white;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+main #menu_title {
+  width: 100%;
+  border-radius: 10px;
+}
+
+main #menu_title .menyu_select h1 {
+  font-family: sans-serif;
+  font-weight: 500;
+}
+
+main #menu_title .menyu_select form {
+  margin-top: 10px;
+}
+
+main #menu_title .menyu_select input {
+  margin-bottom: 50px;
+  width: 100%;
+  height: 50px;
+}
+
+main #menu_title .menyu_select button {
+  height: 50px;
+  width: 30%;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+  background-color: yellowgreen;
+}
+
+main #menu_title .menyu_select_filter {
+  margin-top: 50px;
+  border-top: solid;
+}
+
+main #menu_title .menyu_select_filter .menyu_select_filter_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+main #menu_title .menyu_select_filter .menyu_select_filter_container h1 {
+  font-family: sans-serif;
+}
+
+main #menu_title .menyu_select_filter .menyu_select_filter_container .foods_list_text_element {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+}
+
+main #menu_title .menyu_select_filter .menyu_select_filter_container .foods_list_text_element p {
+  font-family: sans-serif;
+}
+
+main #menu_title .menyu_select_filter .menyu_select_filter_container img {
+  height: auto;
+  width: 50%;
+}
+
+main #menu_title .menyu_select_filter .menyu_select_filter_container button {
+  width: 20%;
+  height: 30px;
+  cursor: pointer;
+}
+
+main #menu {
+  margin-top: 300px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+main #menu .menyu_cost {
+  display: flex;
+  flex-direction: column;
+}
+
+main #menu .menyu_cost h1 {
+  font-family: sans-serif;
+  font-weight: 500;
+}
+
+main #menu .menyu_cost form {
+  margin-top: 10px;
+}
+
+main #menu .menyu_cost form input {
+  height: 50px;
+  margin-bottom: 100px;
+  width: 100%;
+}
+
+main #menu .menyu_cost .food_send {
+  width: 30%;
+  height: 50px;
+  border: none;
+  background-color: aquamarine;
+  border-radius: 10px;
+  color: teal;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+main #menu .menu_cost_delete {
+  margin-top: 100px;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main #menu .menu_cost_delete .menu_const_delete_element {
+  border-radius: 10px;
+  border: 1px solid blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+main #menu .menu_cost_delete .menu_const_delete_element h1 {
+  font-family: sans-serif;
+}
+
+main #menu .menu_cost_delete .menu_const_delete_element p {
+  font-family: sans-serif;
+}
+
+main #menu .menu_cost_delete .menu_const_delete_element button {
+  width: 10%;
+}
+
+main #chef_admin {
+  margin-top: 300px;
+}
+
+main #chef_admin h1 {
+  font-family: sans-serif;
+  font-weight: 500;
+}
+
+main #chef_admin form {
+  margin-top: 10px;
+}
+
+main #chef_admin form input {
+  height: 50px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+main #chef_admin .chef_btn_send {
+  width: 10%;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: aqua;
+  cursor: pointer;
+}
+
+main #chef_admin .chef_admin_chefs {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+main #chef_admin .chef_admin_chefs .chef_admin_element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid red;
+  width: 100%;
+}
+
+main #chef_admin .chef_admin_chefs .chef_admin_element h1 {
+  font-family: sans-serif;
+}
+
+main #chef_admin .chef_admin_chefs .chef_admin_element .chef_admin_description_text {
+  width: 50%;
+}
+
+main #chef_admin .chef_admin_chefs .chef_admin_element .chef_admin_description_text p {
+  text-align: justify;
+  font-family: sans-serif;
+}
+
+main #chef_admin .chef_admin_chefs .chef_admin_element button {
+  width: 10%;
+  cursor: pointer;
+}
+
+main #rezerv_admin {
+  margin-top: 100px;
+}
+
+main #rezerv_admin h1 {
+  font-family: sans-serif;
+}
+
+main #rezerv_admin .rezerv_admin_element {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+main #rezerv_admin .rezerv_admin_element button {
+  width: 10%;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #04091e;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+footer .footer_all {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  footer .footer_all {
+    flex-direction: column;
+  }
+}
+
+footer .footer_all p {
+  color: white;
+}
+
+footer .footer_all .footer_icons {
+  display: flex;
+  justify-content: space-between;
+  width: 13%;
+  gap: 5px;
+}
+
+footer .footer_all .footer_icons .box {
+  background-color: #1e2235;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 500ms;
+  cursor: pointer;
+}
+
+footer .footer_all .footer_icons .box:hover {
+  background-color: #f42f2c;
+}
+
+footer .footer_all .footer_icons .box i {
+  color: white;
+}
+
+main .basket_all {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+main .basket_all h1 {
+  font-family: sans-serif;
+  margin-top: 100px;
+}
+
+main .basket_all h1 span {
+  font-family: sans-serif;
+}
+
+main .basket_all h1 h2 {
+  font-family: sans-serif;
+}
+
+main .basket_all h3 {
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+main .basket_all p {
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+main .basket_all .basket_item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  border: 1px solid black;
+}
+
+main .basket_all .basket_item .basket_topla {
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  border: none;
+  height: 30px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+main .basket_all .basket_item .basket_cixma {
+  background-color: maroon;
+  color: white;
+  font-size: 20px;
+  border: none;
+  height: 30px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+main .basket_all .basket_item .basket_vurma {
+  border: none;
+  color: white;
+  border-radius: 10px;
+  height: 30px;
+  width: 100px;
+  background-color: #f42f2c;
+}
+
+@media screen and (max-width: 768px) {
+  main .basket_all .basket_item {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+  }
+}
+
+main .basket_all .sifaris {
+  justify-self: center;
+  margin-top: 50px;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  color: white;
+  background-color: #f42f2c;
+  cursor: pointer;
+  height: 30px;
+}
+/*# sourceMappingURL=main.css.map */

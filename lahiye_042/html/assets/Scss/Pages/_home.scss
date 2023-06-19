@@ -1,0 +1,380 @@
+main {
+  background-image: url("/HTML/Assets/Image/bg\ imagee.png");
+  display: flex;
+  flex-direction: column;
+  #foods {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    .foods_list {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .foods_list_all {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .foods_list_text {
+          margin-top: 100px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: start;
+          gap: 10px;
+          width: 100%;
+          h1 {
+            font-family: sans-serif;
+            font-size: 50px;
+          }
+          p {
+            width: 100%;
+            font-family: sans-serif;
+          }
+          button {
+            height: 30px;
+            width: 30%;
+            border: none;
+            border-radius: 10px;
+            background-color: #f42f2c;
+            color: white;
+            cursor: pointer;
+          }
+        }
+        .foods_list_image {
+          margin-top: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          cursor: zoom-in;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          width: 100%;
+          transition: 500ms;
+          border-radius: 10px;
+          img {
+            height: auto;
+            width: 100%;
+            transition: 500ms;
+            &:hover {
+              transform: scale(1.3);
+            }
+          }
+        }
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+          gap: 30px;
+          img {
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+  }
+  #menu {
+    .menu_all {
+      .menu_title {
+        margin-top: 100px;
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h1 {
+          font-family: sans-serif;
+          font-size: 40px;
+        }
+        p {
+          font-family: sans-serif;
+        }
+      }
+      .menu_foods {
+        display: flex;
+        gap: 1%;
+        .menu_foods_cost {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          background-image: url("/HTML/Assets/Image/menu_bg_image.jpg");
+          border-radius: 10px;
+          .menu_foods_cost_element {
+            width: 95%;
+            display: flex;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            justify-content: space-between;
+            align-items: center;
+            h1 {
+              font-family: sans-serif;
+              color: #000000;
+            }
+            p {
+              font-family: sans-serif;
+              font-weight: 800;
+              color: rgb(0, 0, 0);
+            }
+            .basket_btn {
+              width: 100px;
+              height: 30px;
+              border: none;
+              border-radius: 10px;
+              background-color: #f42f2c;
+              color: white;
+              transition: 500ms;
+              cursor: pointer;
+              &:hover {
+                background-color: white;
+                color: #f42f2c;
+                border: 1px solid #f42f2c;
+              }
+              &:hover i {
+                color: #f42f2c;
+              }
+              i {
+                color: white;
+                margin-left: 5px;
+              }
+            }
+          }
+        }
+        .menu_foods_image {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          position: relative;
+          border-radius: 10px;
+          cursor: pointer;
+          &:hover .menu_foods_image_text {
+            height: 10%;
+            opacity: 0.7;
+            z-index: 1;
+          }
+          img {
+            height: auto;
+            width: 100%;
+            transition: 500ms;
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+          .menu_foods_image_text {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 0;
+            transition: 500ms;
+            overflow: hidden;
+            opacity: 0;
+            z-index: -1;
+            background-color: rgb(60, 100, 100);
+            width: 100%;
+            bottom: 0;
+            P {
+              color: white;
+            }
+          }
+        }
+        @media screen and (max-width: 1010px) {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    }
+  }
+  #chef {
+    .chef_descripion_all {
+      width: 100%;
+      max-width: 60%;
+      margin: 0 auto;
+      margin-top: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        font-family: sans-serif;
+        font-size: 40px;
+        margin-top: 100px;
+      }
+      .chef_descripion {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        .chef_descripion_element {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 100px;
+          @media screen and (max-width: 768px) {
+            justify-content: center;
+            flex-direction: column;
+          }
+          .chef_descripion_image {
+            border-radius: 10px;
+            overflow: visible;
+            background-image: url("https://media.istockphoto.com/id/1428412216/photo/a-male-chef-pouring-sauce-on-meal.webp?b=1&s=170667a&w=0&k=20&c=mMfLAC5goaTvBlr5_2w3e87pi91EqXDtEFh5e4pQUTM=");
+            width: 50%;
+            height: 350px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            @media screen and (max-width: 768px) {
+              width: 100%;
+            }
+          }
+          .chef_descripion_text {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: center;
+            gap: 50px;
+            margin-left: 10px;
+            h1 {
+              font-family: sans-serif;
+              color: #f42f2c;
+            }
+            p {
+              text-align: justify;
+              font-family: sans-serif;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+  #rezerv {
+    .rezerv_all {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 100px;
+      gap: 1%;
+
+      .rezerv_image {
+        overflow: hidden;
+        width: 100%;
+        border-radius: 10px;
+        transition: 500ms;
+        img {
+          height: auto;
+          width: 100%;
+          transition: 500ms;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+        @media screen and (max-width: 1250px) {
+          height: 400px;
+          img {
+            height: 100%;
+          }
+        }
+      }
+      .rezerv_text {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        background-color: #f8f8f9;
+        height: 450px;
+        border-radius: 10px;
+        @media screen and (max-width: 768px) {
+          height: 600px;
+        }
+        .rezerv_title {
+          margin-left: 50px;
+          width: 70%;
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          justify-content: center;
+          height: 100px;
+          h1 {
+            font-family: sans-serif;
+            text-align: start;
+          }
+        }
+        form {
+          margin-left: 50px;
+          margin-top: 40px;
+          width: 60%;
+          input {
+            height: 30px;
+            width: 100%;
+          }
+        }
+        .rezerv_btn {
+          margin-left: 50px;
+          margin-top: 40px;
+          margin-bottom: 20px;
+          cursor: pointer;
+          background-color: #f42f2c;
+          border-radius: 10px;
+          border: none;
+          color: white;
+          width: 25%;
+          height: 40px;
+          transition: 500ms;
+          &:hover {
+            background-color: white;
+            border: 1px solid #f42f2c;
+            color: #f42f2c;
+          }
+        }
+        .congrlation_bg {
+          position: fixed;
+          height: 100%;
+          width: 100%;
+          background-color: black;
+          opacity: 0.8;
+          top: 0;
+          left: 0;
+          right: 0;
+          display: none;
+          justify-content: center;
+          align-items: center;
+          .congrlation {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            background-color: white;
+            h1 {
+              color: red;
+              font-family: sans-serif;
+              font-size: 50px;
+            }
+            p {
+              color: red;
+              font-family: sans-serif;
+              font-size: 30px;
+            }
+          }
+        }
+      }
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        gap: 50px;
+        .rezerv_image {
+          height: auto;
+          img {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+  #location{
+    margin-top: 100px;
+
+  }
+}

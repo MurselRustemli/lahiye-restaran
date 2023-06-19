@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Assets/css/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <section id="menu_title">
+        <div class="menyu_select">
+          <h1>Menyu basliqini daxil edin.</h1>
+          <form action="">
+            <input type="text" placeholder="Basliq" class="menyu_title" />
+          </form>
+          <h1>Menyu haqda melumat verin</h1>
+          <form action="">
+            <input
+              type="text"
+              placeholder="Menyu tesviri"
+              class="menyu_description"
+            />
+          </form>
+          <h1>Menyuyla baqli bir sekil linki yazin</h1>
+          <form action="">
+            <input type="text" placeholder="Menyu sekili" class="menyu_image" />
+          </form>
+          <button class="title_post">Gonder</button>
+        </div>
+        <div class="menyu_select_filter"></div>
+      </section>
+      <section id="menu">
+        <div class="menyu_cost">
+          <h1>Yemeyin adini daxil edin</h1>
+          <form action="">
+            <input type="text" placeholder="Yemek adi" class="food_name" />
+          </form>
+          <h1>Yemeyin qiymetin daxil edin</h1>
+          <form action="">
+            <input type="text" placeholder="Yemek qiymeti" class="food_cost" />
+          </form>
+          <button class="food_send">Gonder</button>
+        </div>
+        <div class="menu_cost_delete"></div>
+      </section>
+      <section id="log">
+        <div class="login">
+          <form action="">
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              class="login_usr"
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              class="login_psr"
+            />
+          </form>
+          <button class="admin_btn">Giris</button>
+        </div>
+      </section>
+      <section id="chef_admin">
+        <h1>
+          Sefin adini daxil edin
+        </h1>
+<form action="">
+  <input type="text" placeholder="Sefin adi ve soyadi" class="chef_admin_chefname">
+</form>
+<h1>
+  Sef haqqinda melumat daxil edin
+</h1>
+<form action="">
+  <input type="text" placeholder="Sef haqqinda" class="chef_admin_description"/>
+</form>
+<button class="chef_btn_send">
+  Gonder
+</button>
+<div class="chef_admin_chefs">
+
+</div>
+      </section>
+      <section id="rezerv_admin">
+        <h1>
+          Rezervasiya
+        </h1>
+      </section>
+    </main>
+    <script src="./Assets/Js/admin.js"></script>
+  </body>
+</html>
