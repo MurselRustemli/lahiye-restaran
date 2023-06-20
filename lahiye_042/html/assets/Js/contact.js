@@ -136,6 +136,8 @@ fetch("http://localhost:3000/chef")
       chef_descripion_image.className = "chef_descripion_image";
       chef_descripion_text.className = "chef_descripion_text";
       chef_descripion_all.className = "chef_descripion_all";
+      h1.className = "lineUp"
+      p.className="lineUp_text"
 
       h1.innerText = element.chef_admin_chefname;
       p.innerText = element.chef_admin_description;

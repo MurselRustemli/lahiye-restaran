@@ -43,6 +43,7 @@ fetch("http://localhost:3000/posts")
       food_list_all.className = "foods_list_all";
       foods_list_text.className = "foods_list_text";
       food_list_image.className = "foods_list_image";
+      h1.className="flipX"
       img.src = element.image;
       btn.innerText = "Butun menyu";
       h1.innerText = element.menyu_title;
@@ -90,8 +91,9 @@ fetch("http://localhost:3000/comments")
         }
         localStorage.setItem("basket", JSON.stringify(basket_arr));
         // console.log(element.id)
+        btn.style.display = 'none'; 
       };
-
+      
       btn.append(i);
       div.append(h1, p, btn);
       menu_foods_cost.append(div);
@@ -127,6 +129,8 @@ fetch("http://localhost:3000/chef")
       chef_descripion_image.className = "chef_descripion_image";
       chef_descripion_text.className = "chef_descripion_text";
       chef_descripion_all.className = "chef_descripion_all";
+      h1.className = "lineUp"
+      p.className="lineUp_text"
 
       h1.innerText = element.chef_admin_chefname;
       p.innerText = element.chef_admin_description;
@@ -151,6 +155,19 @@ const userpassword = JSON.parse(localStorage.getItem("password"));
 const nav_btns_log = document.querySelector(".nav_btns_log");
 const profil = document.querySelector(".profil");
 
+const login_name = document.querySelector(".login_name");
+const login_password = document.querySelector(".login_password");
+const login_send = document.querySelector(".login_send");
+const login_singin = document.querySelector(".login_singin");
+
+const singin = document.querySelector(".singin");
+const singin_name = document.querySelector(".singin_name");
+const singin_password = document.querySelector(".singin_password");
+const singin_send = document.querySelector(".singin_send");
+const singin_login = document.querySelector(".singin_login");
+const nav_btns_log_singin = document.querySelector(".nav_btns_log_singin");
+const log_singin = document.querySelector(".log_singin");
+
 if (userData === null) {
   nav_btns_log.style.display = "flex";
   profil.style.display = "none";
@@ -164,11 +181,12 @@ const login = document.querySelector(".login");
 nav_btns_log_login.addEventListener("click", function () {
   login.style.display = "flex";
 });
+const log_login = document.querySelector(".log_login");
 
-const login_name = document.querySelector(".login_name");
-const login_password = document.querySelector(".login_password");
-const login_send = document.querySelector(".login_send");
-const login_singin = document.querySelector(".login_singin");
+log_login.addEventListener("click", function () {
+  login.style.display = "flex";
+});
+
 
 login_send.addEventListener("click", function () {
   if (login_name.value === "") {
@@ -195,14 +213,10 @@ login_singin.addEventListener("click", function () {
   singin.style.display = "flex";
 });
 
-const singin = document.querySelector(".singin");
-const singin_name = document.querySelector(".singin_name");
-const singin_password = document.querySelector(".singin_password");
-const singin_send = document.querySelector(".singin_send");
-const singin_login = document.querySelector(".singin_login");
-const nav_btns_log_singin = document.querySelector(".nav_btns_log_singin");
-
 nav_btns_log_singin.addEventListener("click", function () {
+  singin.style.display = "flex";
+});
+log_singin.addEventListener("click", function () {
   singin.style.display = "flex";
 });
 singin_send.addEventListener("click", function () {
@@ -230,10 +244,21 @@ singin_login.addEventListener("click", function () {
   singin.style.display = "none";
   login.style.display = "flex";
 });
-
+const profil_tablet=document.querySelector(".profil_tablet");
 const h3 = document.createElement("h3");
 h3.innerText = `${userData}`;
 profil.append(h3);
+const h3_tablet = document.createElement("h3");
+h3_tablet.innerText = `${userData}`;
+profil_tablet.append(h3_tablet);
+const nav_btns_log_tablet=document.querySelector(".nav_btns_log_tablet")
+if (userData === null) {
+  nav_btns_log_tablet.style.display = "flex";
+  profil_tablet.style.display = "none";
+} else {
+  nav_btns_log_tablet.style.display = "none";
+  profil_tablet.style.display = "flex";
+}
 //
 //
 ////////////////////////////////

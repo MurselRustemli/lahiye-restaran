@@ -1,25 +1,24 @@
 footer {
-    background-color: #04091e;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
+  background-color: #04091e;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .footer_all {
     display: flex;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
     @media screen and (max-width: 768px) {
       flex-direction: column;
     }
     p {
-        color: white;
+      color: white;
     }
     .footer_icons {
-        display: flex;
-        justify-content: space-between;
-        width: 13%;
-        gap: 5px;
+      display: flex;
+      justify-content: space-between;
+      width: 13%;
+      gap: 5px;
       .box {
         background-color: #1e2235;
         height: 30px;
@@ -29,11 +28,11 @@ footer {
         align-items: center;
         transition: 500ms;
         cursor: pointer;
-        &:hover{
-            background-color: #f42f2c;
+        &:hover {
+          background-color: #f42f2c;
         }
         i {
-            color: white;
+          color: white;
         }
       }
     }

@@ -301,92 +301,6 @@ header nav .nav_btns .nav_btns_all .profil h3 {
   cursor: pointer;
 }
 
-header nav .nav_btns .nav_btns_all .login {
-  position: fixed;
-  background-color: white;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1%;
-}
-
-header nav .nav_btns .nav_btns_all .login form {
-  width: 30%;
-}
-
-header nav .nav_btns .nav_btns_all .login form input {
-  width: 100%;
-  height: 30px;
-}
-
-header nav .nav_btns .nav_btns_all .login .login_send {
-  cursor: pointer;
-  height: 30px;
-  width: 10%;
-  border: none;
-  color: white;
-  background-color: #b35959;
-  border-radius: 5px;
-}
-
-header nav .nav_btns .nav_btns_all .login .login_singin {
-  cursor: pointer;
-  height: 30px;
-  width: 10%;
-  border: none;
-  color: white;
-  background-color: #5969b3;
-  border-radius: 5px;
-}
-
-header nav .nav_btns .nav_btns_all .singin {
-  position: fixed;
-  background-color: white;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1%;
-}
-
-header nav .nav_btns .nav_btns_all .singin form {
-  width: 30%;
-}
-
-header nav .nav_btns .nav_btns_all .singin form input {
-  width: 100%;
-  height: 30px;
-}
-
-header nav .nav_btns .nav_btns_all .singin .singin_send {
-  cursor: pointer;
-  height: 30px;
-  width: 10%;
-  border: none;
-  color: white;
-  background-color: #b35959;
-  border-radius: 5px;
-}
-
-header nav .nav_btns .nav_btns_all .singin .singin_login {
-  cursor: pointer;
-  height: 30px;
-  width: 10%;
-  border: none;
-  color: white;
-  background-color: #5969b3;
-  border-radius: 5px;
-}
-
 @media screen and (max-width: 768px) {
   header nav .nav_btns {
     display: none;
@@ -395,6 +309,47 @@ header nav .nav_btns .nav_btns_all .singin .singin_login {
 
 header .nav_bg {
   width: 100%;
+}
+
+header .nav_bg .nav_bg_cart .col-md-12 {
+  position: absolute;
+  height: 100%;
+  width: 14.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .nav_bg .nav_bg_cart .animate-charcter {
+  text-transform: uppercase;
+  background-image: linear-gradient(-225deg, #231557 0%, #44107a 29%, #ff1361 67%, #fff800 100%);
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-emphasis-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 100px;
+}
+
+@media screen and (max-width: 1230px) {
+  header .nav_bg .nav_bg_cart .animate-charcter {
+    font-size: 80px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  header .nav_bg .nav_bg_cart .animate-charcter {
+    font-size: 50px;
+  }
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }
 
 header .nav_bg .slick-prev {
@@ -454,6 +409,42 @@ header .nav_tablet .nav_tablet_open ul li a:hover {
   color: #f42f2c;
 }
 
+header .nav_tablet .nav_tablet_open .nav_btns_log_tablet {
+  gap: 1%;
+}
+
+header .nav_tablet .nav_tablet_open .nav_btns_log_tablet .log_login {
+  cursor: pointer;
+  background: none;
+  color: white;
+  border: none;
+  height: 30px;
+  width: 100px;
+}
+
+header .nav_tablet .nav_tablet_open .nav_btns_log_tablet .log_singin {
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100px;
+  color: white;
+  height: 30px;
+}
+
+header .nav_tablet .nav_tablet_open .profil_tablet {
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 120px;
+}
+
+header .nav_tablet .nav_tablet_open .profil_tablet h3 {
+  color: white;
+  font-size: 23px;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
 header .nav_tablet .nav_tablet_isactive {
   height: auto;
   transition: 300ms;
@@ -463,6 +454,94 @@ header .nav_tablet .nav_tablet_isactive {
   header .nav_tablet {
     display: block;
   }
+}
+
+header .login {
+  position: fixed;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1%;
+  z-index: 1;
+}
+
+header .login form {
+  width: 30%;
+}
+
+header .login form input {
+  width: 100%;
+  height: 30px;
+}
+
+header .login .login_send {
+  cursor: pointer;
+  height: 30px;
+  width: 10%;
+  border: none;
+  color: white;
+  background-color: #b35959;
+  border-radius: 5px;
+}
+
+header .login .login_singin {
+  cursor: pointer;
+  height: 30px;
+  width: 10%;
+  border: none;
+  color: white;
+  background-color: #5969b3;
+  border-radius: 5px;
+}
+
+header .singin {
+  position: fixed;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1%;
+  z-index: 1;
+}
+
+header .singin form {
+  width: 30%;
+}
+
+header .singin form input {
+  width: 100%;
+  height: 30px;
+}
+
+header .singin .singin_send {
+  cursor: pointer;
+  height: 30px;
+  width: 10%;
+  border: none;
+  color: white;
+  background-color: #b35959;
+  border-radius: 5px;
+}
+
+header .singin .singin_login {
+  cursor: pointer;
+  height: 30px;
+  width: 10%;
+  border: none;
+  color: white;
+  background-color: #5969b3;
+  border-radius: 5px;
 }
 
 main {
@@ -500,9 +579,29 @@ main #foods .foods_list .foods_list_all .foods_list_text {
   width: 100%;
 }
 
-main #foods .foods_list .foods_list_all .foods_list_text h1 {
+main #foods .foods_list .foods_list_all .foods_list_text .flipX {
   font-family: sans-serif;
   font-size: 50px;
+}
+
+main #foods .foods_list .foods_list_all .foods_list_text .flipX {
+  animation: 3s anim-flipX ease;
+}
+
+@keyframes anim-flipX {
+  0% {
+    opacity: 0;
+    transform: rotateX(90def);
+  }
+  50% {
+    opacity: 1;
+    transform: rotateX(720deg);
+  }
+  100% {
+    /* animate nothing to pause animation at the end */
+    opacity: 1;
+    transform: rotateX(720deg);
+  }
 }
 
 main #foods .foods_list .foods_list_all .foods_list_text p {
@@ -536,6 +635,7 @@ main #foods .foods_list .foods_list_all .foods_list_image {
 main #foods .foods_list .foods_list_all .foods_list_image img {
   height: auto;
   width: 100%;
+  max-width: 100%;
   transition: 500ms;
 }
 
@@ -554,7 +654,6 @@ main #foods .foods_list .foods_list_all .foods_list_image img:hover {
 }
 
 main #menu .menu_all .menu_title {
-  margin-top: 100px;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
@@ -651,7 +750,7 @@ main #menu .menu_all .menu_foods .menu_foods_image:hover .menu_foods_image_text 
 
 main #menu .menu_all .menu_foods .menu_foods_image img {
   height: auto;
-  width: 100%;
+  max-width: 100%;
   transition: 500ms;
 }
 
@@ -749,15 +848,59 @@ main #chef .chef_descripion_all .chef_descripion .chef_descripion_element .chef_
   margin-left: 10px;
 }
 
-main #chef .chef_descripion_all .chef_descripion .chef_descripion_element .chef_descripion_text h1 {
+main #chef .chef_descripion_all .chef_descripion .chef_descripion_element .chef_descripion_text .lineUp {
   font-family: sans-serif;
   color: #f42f2c;
 }
 
-main #chef .chef_descripion_all .chef_descripion .chef_descripion_element .chef_descripion_text p {
+main #chef .chef_descripion_all .chef_descripion .chef_descripion_element .chef_descripion_text .lineUp_text {
   text-align: justify;
   font-family: sans-serif;
   color: black;
+}
+
+main #chef .chef_descripion_all .chef_descripion .chef_descripion_element .chef_descripion_text .lineUp {
+  animation: 3s anim-lineUp ease-out infinite;
+}
+
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+main #chef .chef_descripion_all .chef_descripion .chef_descripion_element .chef_descripion_text .lineUp_text {
+  animation: 3s anim-lineUp ease-out infinite;
+}
+
+@keyframes anim-lineUp_text {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
 
 main #rezerv .rezerv_all {
@@ -765,6 +908,7 @@ main #rezerv .rezerv_all {
   justify-content: space-between;
   align-items: center;
   margin-top: 100px;
+  margin-bottom: 100px;
   gap: 1%;
 }
 
@@ -1144,7 +1288,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
 }
 
 footer .footer_all {
@@ -1275,5 +1418,6 @@ main .basket_all .sifaris {
   background-color: #f42f2c;
   cursor: pointer;
   height: 30px;
+  margin-bottom: 100px;
 }
 /*# sourceMappingURL=main.css.map */

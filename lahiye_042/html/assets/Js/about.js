@@ -134,6 +134,7 @@ fetch("http://localhost:3000/posts")
       food_list_all.className = "foods_list_all";
       foods_list_text.className = "foods_list_text";
       food_list_image.className = "foods_list_image";
+      h1.className="flipX"
       img.src = element.image;
       btn.innerText = "Butun menyu";
       h1.innerText = element.menyu_title;
@@ -162,6 +163,8 @@ fetch("http://localhost:3000/chef")
       chef_descripion_image.className = "chef_descripion_image";
       chef_descripion_text.className = "chef_descripion_text";
       chef_descripion_all.className = "chef_descripion_all";
+      h1.className = "lineUp"
+      p.className="lineUp_text"
 
       h1.innerText = element.chef_admin_chefname;
       p.innerText = element.chef_admin_description;
